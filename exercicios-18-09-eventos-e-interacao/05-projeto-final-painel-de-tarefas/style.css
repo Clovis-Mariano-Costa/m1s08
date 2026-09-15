@@ -1,0 +1,111 @@
+/* Estilo simples só para deixar a página legível durante a aula. */
+/* O foco deste exercício é o JavaScript no console, não o CSS. */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f6f8;
+  color: #263238;
+  margin: 0;
+  padding: 32px;
+}
+
+.painel {
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  color: #0d3b66;
+  font-size: 22px;
+}
+
+#status {
+  color: #2a9d8f;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  width: 70%;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  background-color: #0d3b66;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a9d8f;
+}
+
+ul {
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.item {
+  padding: 4px 0;
+}
+
+.destaque {
+  border-left: 4px solid #2a9d8f;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+.concluida {
+  text-decoration: line-through;
+  opacity: 0.6;
+  color: #789;
+}
+
+.item {
+  cursor: pointer;
+  padding: 6px 4px;
+  border-bottom: 1px solid #eef2f4;
+  list-style: none;
+}
+
+.item:hover {
+  background-color: #f3f9f8;
+}
+
+.linha-form {
+  margin: 12px 0;
+}
+
+.dica-tecla {
+  color: #78909c;
+  font-size: 13px;
+}
+
+.instrucoes {
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: #eef4f8;
+  border-left: 4px solid #0d3b66;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.instrucoes ul {
+  margin: 6px 0 0 0;
+  padding-left: 18px;
+}
+
+kbd {
+  background: #263238;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-size: 12px;
+}

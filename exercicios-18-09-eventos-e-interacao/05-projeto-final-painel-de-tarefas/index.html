@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Final - Painel Interativo de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- defer garante que o DOM já está pronto quando script.js rodar. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app">
+    <h1 id="titulo">Minhas tarefas</h1>
+    <p id="status">Carregando painel...</p>
+
+    <div class="linha-form">
+      <input id="nova-tarefa" type="text" placeholder="Digite uma tarefa e pressione Enter">
+      <button id="adicionar">Adicionar</button>
+    </div>
+
+    <ul id="lista">
+      <!-- A lista começa vazia: todos os itens são criados pelo JavaScript. -->
+    </ul>
+
+    <p id="tecla" class="dica-tecla">Nenhuma tecla registrada.</p>
+
+    <div class="instrucoes">
+      <p><strong>Como usar:</strong></p>
+      <ul>
+        <li>Digite uma tarefa e pressione <kbd>Enter</kbd> ou clique em "Adicionar".</li>
+        <li>Clique em uma tarefa para marcá-la como concluída (e clique de novo para desmarcar).</li>
+        <li>Dê um duplo clique em uma tarefa para removê-la.</li>
+      </ul>
+    </div>
+  </main>
+</body>
+</html>

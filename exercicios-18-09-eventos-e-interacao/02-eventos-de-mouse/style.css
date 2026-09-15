@@ -1,0 +1,87 @@
+/* Estilo simples só para deixar a página legível durante a aula. */
+/* O foco deste exercício é o JavaScript no console, não o CSS. */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f6f8;
+  color: #263238;
+  margin: 0;
+  padding: 32px;
+}
+
+.painel {
+  max-width: 520px;
+  margin: 0 auto;
+  background: white;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+  color: #0d3b66;
+  font-size: 22px;
+}
+
+#status {
+  color: #2a9d8f;
+  font-weight: bold;
+}
+
+input {
+  padding: 8px;
+  width: 70%;
+  margin-right: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  background-color: #0d3b66;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #2a9d8f;
+}
+
+ul {
+  padding-left: 20px;
+  margin-top: 16px;
+}
+
+.item {
+  padding: 4px 0;
+}
+
+.destaque {
+  border-left: 4px solid #2a9d8f;
+  font-weight: bold;
+  padding-left: 8px;
+}
+
+.concluida {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.caixa-mouse {
+  margin-top: 20px;
+  padding: 24px;
+  text-align: center;
+  border: 2px dashed #2a9d8f;
+  border-radius: 8px;
+  color: #0d3b66;
+  font-weight: bold;
+  transition: background-color 0.15s ease;
+}
+
+.caixa-mouse.mouse-em-cima {
+  background-color: #edf8f6;
+}
+
+.caixa-mouse.clicada {
+  background-color: #fff3cd;
+}

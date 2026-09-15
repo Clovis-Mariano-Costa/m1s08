@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 1 - Primeiras seleções</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- "defer" espera o HTML inteiro carregar antes de rodar o script. -->
+  <!-- Sem isso, o script tentaria selecionar elementos que ainda não existem. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="painel">
+    <h1 id="titulo">Painel Interativo de Tarefas</h1>
+    <p id="status">Carregando painel...</p>
+    <input id="nova-tarefa" type="text" placeholder="Digite uma tarefa">
+    <button id="adicionar">Adicionar</button>
+
+    <ul id="lista">
+      <li class="item">Revisar HTML</li>
+      <li class="item">Praticar seletores</li>
+      <li class="item">Testar no console</li>
+    </ul>
+  </main>
+</body>
+</html>

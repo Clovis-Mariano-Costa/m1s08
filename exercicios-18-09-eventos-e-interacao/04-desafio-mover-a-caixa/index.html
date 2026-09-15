@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio - Mover a caixa com o teclado</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="painel">
+    <h1>Mova a caixa vermelha com as setas do teclado</h1>
+    <p id="tecla-pressionada">Nenhuma tecla registrada.</p>
+
+    <!--
+      A área abaixo tem position: relative para servir de "moldura"
+      onde a caixa (position: absolute) pode se mover livremente.
+    -->
+    <div class="area-de-jogo">
+      <div id="caixa"></div>
+    </div>
+  </main>
+</body>
+</html>
