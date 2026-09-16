@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercício 5 - Praticando querySelector</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- defer garante que todos os elementos abaixo já existem quando o script rodar -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="painel">
+    <h1 id="titulo">Painel de Alunos</h1>
+    <p id="status">Abra o console (F12) para acompanhar cada seleção.</p>
+
+    <!-- Usado para praticar seletor de filho direto (">") e :first-child / :last-child -->
+    <ul id="menu">
+      <li>Início</li>
+      <li class="ativo">Alunos</li>
+      <li>Relatórios</li>
+    </ul>
+
+    <!-- Usado para praticar classe, tag, atributo (data-turma) e seletor combinado -->
+    <section id="lista-alunos">
+      <div class="aluno" data-turma="A">
+        <h2 class="nome">Ana Souza</h2>
+        <span class="nota">8.5</span>
+      </div>
+
+      <div class="aluno" data-turma="B">
+        <h2 class="nome">Bruno Lima</h2>
+        <span class="nota">7.2</span>
+      </div>
+
+      <div class="aluno" data-turma="A">
+        <h2 class="nome">Carla Dias</h2>
+        <span class="nota">9.1</span>
+      </div>
+    </section>
+
+    <!-- Usado para praticar seletor de atributo "type" -->
+    <label for="busca">Buscar aluno:</label>
+    <input id="busca" type="text" placeholder="Digite um nome">
+  </main>
+</body>
+</html>

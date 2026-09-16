@@ -38,7 +38,7 @@ console.log("quantidade de itens encontrados:", todosOsItens.length);
 // forEach passa, a cada volta, o elemento atual e o seu índice (posição).
 todosOsItens.forEach(function (item, indice) {
   // textContent lê o texto puro do elemento (mais sobre isso no Encontro 2).
-  console.log("item " + indice + ":", item.textContent);
+  console.log(item, indice)
 });
 
 // --- 7) Atualizando o status para confirmar que o script rodou ---
