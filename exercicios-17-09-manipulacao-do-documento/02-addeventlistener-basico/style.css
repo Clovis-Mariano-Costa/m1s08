@@ -23,22 +23,9 @@ h1 {
   font-size: 22px;
 }
 
-#status-leitura {
+#mensagem {
   color: #2a9d8f;
   font-weight: bold;
-}
-
-h2 {
-  font-size: 16px;
-  color: #0d3b66;
-  margin-top: 20px;
-  margin-bottom: 4px;
-}
-
-input {
-  padding: 8px;
-  width: 70%;
-  margin-right: 8px;
 }
 
 button {
@@ -52,38 +39,4 @@ button {
 
 button:hover {
   background-color: #2a9d8f;
-}
-
-ul {
-  padding-left: 20px;
-  margin-top: 16px;
-}
-
-.item {
-  padding: 4px 0;
-}
-
-.destaque {
-  border-left: 4px solid #2a9d8f;
-  font-weight: bold;
-  padding-left: 8px;
-}
-
-.concluida {
-  text-decoration: line-through;
-  opacity: 0.6;
-}
-
-.caixa-resultado {
-  border: 1px dashed #ced9de;
-  border-radius: 6px;
-  padding: 16px;
-  margin: 16px 0;
-  min-height: 24px;
-  background: #fafcfd;
-}
-
-button {
-  margin-right: 8px;
-  margin-bottom: 8px;
 }
