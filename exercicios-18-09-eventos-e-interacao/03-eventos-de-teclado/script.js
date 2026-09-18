@@ -25,14 +25,10 @@ document.addEventListener("keyup", function (event) {
 
 
 // --- Função que "envia" a busca digitada no campo ---
+// Ação direta, sem validação: o objetivo aqui é o evento de teclado,
+// não checar se o campo está vazio.
 function enviarBusca() {
-  const texto = campoBusca.value.trim();
-
-  if (texto === "") {
-    resultadoBusca.textContent = "Digite algo antes de pressionar Enter.";
-    return;
-  }
-
+  const texto = campoBusca.value;
   resultadoBusca.textContent = "Você buscou por: \"" + texto + "\"";
   campoBusca.value = ""; // limpa o campo depois de usar
 }

@@ -36,7 +36,23 @@ linha, prontos para rodar e servir de modelo em aula:
   `textContent`, `innerHTML`, `style`, `classList`, `createElement`, `appendChild`, `remove`,
   `removeChild`.
 - [`exercicios-18-09-eventos-e-interacao/`](exercicios-18-09-eventos-e-interacao/) —
-  `addEventListener`, eventos de mouse e teclado, `event.key`, e o projeto final integrado.
+  `addEventListener`, eventos de mouse e teclado, `event.key`, e o projeto final integrado
+  (painel de tarefas).
+
+### Mini Projeto — Tela de Login (18/09, últimos 40 minutos de aula)
+
+Exercício que reúne todos os tópicos da semana em uma única tela, sem `if`/`else` — cada evento
+faz uma única ação direta. Material do aluno, na raiz do repositório:
+
+- [`Documentacao-Funcional-Tela-Login.pdf`](Documentacao-Funcional-Tela-Login.pdf) — como a tela
+  final deve se comportar, com um storyboard visual de cada estado.
+- [`Refinamento-Tecnico-Tela-Login.pdf`](Refinamento-Tecnico-Tela-Login.pdf) /
+  [`.html`](Refinamento-Tecnico-Tela-Login.html) — explicação do exercício e exemplos genéricos de
+  código HTML/CSS/JS para cada tópico.
+
+O gabarito completo e comentado, para o professor corrigir em aula, fica em
+[`exercicios-18-09-eventos-e-interacao/06-mini-projeto-tela-login/`](exercicios-18-09-eventos-e-interacao/06-mini-projeto-tela-login/)
+— não é entregue ao aluno.
 
 ## Como clonar este repositório
 
@@ -77,6 +93,9 @@ dependências:
 ```
 m1s08/
 ├── README.md
+├── Documentacao-Funcional-Tela-Login.pdf
+├── Refinamento-Tecnico-Tela-Login.pdf
+├── Refinamento-Tecnico-Tela-Login.html
 ├── exercicios-15-09-dom-e-selecao/
 │   ├── README.md
 │   ├── 01-primeiras-selecoes/
@@ -95,7 +114,8 @@ m1s08/
     ├── 02-eventos-de-mouse/
     ├── 03-eventos-de-teclado/
     ├── 04-desafio-mover-a-caixa/
-    └── 05-projeto-final-painel-de-tarefas/
+    ├── 05-projeto-final-painel-de-tarefas/
+    └── 06-mini-projeto-tela-login/
 ```
 
 ## Créditos

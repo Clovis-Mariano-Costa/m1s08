@@ -56,12 +56,6 @@ ul {
   padding: 4px 0;
 }
 
-.destaque {
-  border-left: 4px solid #2a9d8f;
-  font-weight: bold;
-  padding-left: 8px;
-}
-
 .concluida {
   text-decoration: line-through;
   opacity: 0.6;

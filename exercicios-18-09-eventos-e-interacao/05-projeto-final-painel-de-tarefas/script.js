@@ -17,8 +17,6 @@ const lista = document.getElementById("lista");
 const status = document.getElementById("status");
 const textoTecla = document.getElementById("tecla");
 
-// Confirmando no console que nenhuma seleção retornou null.
-console.log({ input, botaoAdicionar, lista, status, textoTecla });
 status.textContent = "Painel carregado. Adicione sua primeira tarefa!";
 
 
@@ -26,15 +24,11 @@ status.textContent = "Painel carregado. Adicione sua primeira tarefa!";
 // Função principal: cria, configura e insere uma nova tarefa
 // ------------------------------------------------------------
 function adicionarTarefa() {
-  // ENCONTRO 3, Bloco 1 — capturamos e validamos o valor digitado
-  // DENTRO da função, para pegar sempre o valor mais atual.
-  const texto = input.value.trim();
-
-  // Se o campo estiver vazio, não fazemos nada (evita tarefa em branco).
-  if (texto === "") {
-    status.textContent = "Digite uma tarefa antes de adicionar.";
-    return;
-  }
+  // ENCONTRO 3, Bloco 1 — capturamos o valor digitado DENTRO da
+  // função, para pegar sempre o valor mais atual. Ação direta, sem
+  // validação: o foco aqui é criar e inserir o item, não checar o
+  // conteúdo do campo.
+  const texto = input.value;
 
   // ENCONTRO 2, Bloco 7 — createElement + configuração antes de inserir.
   const item = document.createElement("li");
@@ -91,6 +85,5 @@ input.addEventListener("keydown", function (event) {
 // - Adicionar tarefa funciona pelo botão E pela tecla Enter.
 // - Clicar em uma tarefa alterna o estilo "concluída" (riscado).
 // - Duplo clique remove a tarefa da lista.
-// - O campo vazio não gera tarefas em branco.
 // - Nenhum erro aparece no console durante o uso normal.
 // ============================================================

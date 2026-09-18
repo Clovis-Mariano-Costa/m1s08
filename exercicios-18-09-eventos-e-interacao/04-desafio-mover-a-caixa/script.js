@@ -1,14 +1,7 @@
 // ============================================================
-// Desafio (slide 61) — Mover uma caixa vermelha com as setas do teclado
-//
-// Enunciado oficial: criar uma caixa vermelha e permitir que o
-// usuário a mova com as setas do teclado. Cada tecla pressionada
-// deve aparecer na tela. A caixa deve andar 10px por vez, nas
-// QUATRO direções.
-//
-// CORREÇÃO APLICADA: o slide original listava "seta para a
-// esquerda" três vezes nas instruções de texto. Aqui usamos as
-// quatro direções reais: ArrowUp, ArrowDown, ArrowLeft, ArrowRight.
+// Desafio — Mover uma caixa vermelha com as setas do teclado
+// Objetivo: mover a caixa 10px por vez, nas quatro direções, e
+// mostrar sempre qual tecla foi pressionada.
 // ============================================================
 
 const caixa = document.getElementById("caixa");
@@ -44,23 +37,10 @@ document.addEventListener("keydown", function (event) {
   posicaoX = Math.max(0, Math.min(posicaoX, limiteX));
   posicaoY = Math.max(0, Math.min(posicaoY, limiteY));
 
-  // 5) Aplicamos a nova posição usando style.left e style.top,
-  //    exatamente como pede o enunciado oficial do desafio.
+  // 5) Aplicamos a nova posição com style.left e style.top.
   caixa.style.left = posicaoX + "px";
   caixa.style.top = posicaoY + "px";
 });
-
-// ============================================================
-// Variação equivalente (para mostrar em aula, se quiser comparar):
-// em vez de style.left/style.top, também é possível mover a caixa
-// com style.transform, sem position: absolute:
-//
-//   caixa.style.transform = "translate(" + posicaoX + "px, " + posicaoY + "px)";
-//
-// A diferença: left/top reposiciona a caixa dentro do fluxo do
-// layout; transform: translate desloca só visualmente, sem afetar
-// esse fluxo (geralmente roda de forma mais suave).
-// ============================================================
 
 // ============================================================
 // Critério de conclusão deste exercício:

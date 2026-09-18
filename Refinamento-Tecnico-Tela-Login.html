@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Refinamento Técnico — Mini Projeto Tela de Login</title>
+<style>
+  @page { size: A4; margin: 16mm 14mm; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #263238;
+    margin: 0;
+    font-size: 12.5px;
+    line-height: 1.5;
+  }
+  .page { page-break-after: always; padding-top: 2mm; }
+  .page:last-child { page-break-after: auto; }
+
+  /* ---------- capa ---------- */
+  .capa {
+    height: 260mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, #0d3b66 0%, #123d63 55%, #2a9d8f 100%);
+    color: white;
+    border-radius: 18px;
+    padding: 40px;
+  }
+  .capa .tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+  }
+  .capa h1 { font-size: 34px; margin: 0 0 10px; max-width: 480px; }
+  .capa p.subtitulo { font-size: 15px; opacity: 0.92; max-width: 440px; margin: 0 0 34px; }
+  .capa .ficha {
+    background: rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 18px 26px;
+    font-size: 12.5px;
+    text-align: left;
+    width: 340px;
+  }
+  .capa .ficha div { margin-bottom: 6px; }
+  .capa .ficha b { color: #ffe89a; }
+
+  /* ---------- títulos ---------- */
+  h2.secao {
+    color: #0d3b66;
+    font-size: 19px;
+    border-bottom: 3px solid #2a9d8f;
+    padding-bottom: 6px;
+    margin: 0 0 14px;
+  }
+  h3.grupo {
+    color: #2a9d8f;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 20px 0 8px;
+  }
+  p.lead { font-size: 12.5px; color: #45535a; margin: 0 0 16px; }
+
+  .regra {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: #fff8e8;
+    border: 1px solid #f0d9a0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+  .regra .icone { font-size: 18px; }
+  .regra b { color: #a06b00; }
+
+  .caixa-objetivo {
+    background: #eef4f8;
+    border-left: 5px solid #0d3b66;
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+  }
+  .caixa-objetivo b { color: #0d3b66; }
+
+  /* ---------- tabelas ---------- */
+  table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 11.5px; }
+  th, td { border: 1px solid #dfe6ea; padding: 7px 9px; text-align: left; vertical-align: top; }
+  th { background: #0d3b66; color: white; font-size: 11px; }
+  tr:nth-child(even) td { background: #f7fafb; }
+  code {
+    background: #eef4f8;
+    color: #0d3b66;
+    padding: 1px 5px;
+    border-radius: 3px;
+    font-family: Consolas, monospace;
+    font-size: 11px;
+  }
+
+  /* ---------- cartão de tópico ---------- */
+  .topico {
+    border: 1px solid #dfe6ea;
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .topico .cabecalho-topico {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .topico .numero {
+    background: #0d3b66;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10.5px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+  .topico h3 { margin: 0; color: #0d3b66; font-size: 13.5px; }
+  .topico .quando { font-size: 11px; color: #57666d; margin: 4px 0 8px; }
+
+  /* ---------- blocos de código ---------- */
+  .tag-lang {
+    display: inline-block;
+    font-size: 8.5px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+  }
+  .tag-html { background: #f0a500; color: #3a2600; }
+  .tag-css  { background: #4f9ddb; color: #04263f; }
+  .tag-js   { background: #f7df1e; color: #3a3000; }
+
+  .bloco-codigo {
+    background: #10263d;
+    color: #e6edf3;
+    border-radius: 8px;
+    padding: 10px 13px;
+    font-family: Consolas, monospace;
+    font-size: 10px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 0 0 10px;
+  }
+  .bloco-codigo .com { color: #8fb3d9; }
+  .bloco-codigo .str { color: #9cdcb0; }
+
+  /* ---------- checklist ---------- */
+  .checklist { list-style: none; padding: 0; margin: 0; }
+  .checklist li {
+    padding: 8px 10px 8px 34px;
+    position: relative;
+    border-bottom: 1px solid #eef2f4;
+    font-size: 12px;
+  }
+  .checklist li::before {
+    content: "";
+    position: absolute;
+    left: 8px;
+    top: 9px;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #2a9d8f;
+    border-radius: 4px;
+  }
+
+  .passos-tempo { display: flex; flex-direction: column; gap: 0; margin-bottom: 10px; }
+  .passo-tempo {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 9px 0;
+    border-bottom: 1px dashed #e3e9ec;
+  }
+  .passo-tempo .min {
+    background: #2a9d8f;
+    color: white;
+    font-size: 10.5px;
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .rodape-pagina { margin-top: 16px; font-size: 9.5px; color: #9aa7ac; text-align: right; }
+</style>
+</head>
+<body>
+
+<!-- ===================== CAPA ===================== -->
+<section class="page capa">
+  <div class="tag">Refinamento Técnico</div>
+  <h1>Mini Projeto — Tela de Login</h1>
+  <p class="subtitulo">Explicação do exercício e padrões genéricos de código — HTML, CSS e
+  JavaScript — para você construir a sua própria versão da tela.</p>
+  <div class="ficha">
+    <div><b>Disciplina:</b> Desenvolvimento Front-End [React] T4 — SENAI/SC</div>
+    <div><b>Módulo:</b> M1S08 — JavaScript, DOM e Eventos</div>
+    <div><b>Encontro:</b> 18/09/2026 (sexta), 21h às 21h40</div>
+    <div><b>Professor:</b> Lisandro Faria Pinheiro</div>
+    <div><b>Uso:</b> guia de construção do aluno (exemplos genéricos, não é o gabarito)</div>
+  </div>
+</section>
+
+<!-- ===================== SOBRE O EXERCÍCIO ===================== -->
+<section class="page">
+  <h2 class="secao">1. Sobre o exercício</h2>
+
+  <div class="caixa-objetivo">
+    Construir uma <b>tela de login</b> que reúna, em um único lugar, uma ação simples de cada
+    tópico trabalhado na semana. O resultado visual esperado está no documento
+    <b>Documentação Funcional</b> — aqui você encontra os padrões de código para chegar lá.
+  </div>
+
+  <div class="regra">
+    <span class="icone">📌</span>
+    <div><b>Regra de ouro — sem <code>if</code>/<code>else</code>:</b> cada
+    <code>addEventListener</code> deve conter <u>uma única ação direta</u>. Se você sentir vontade
+    de escrever um <code>if</code> dentro do evento, é sinal de que a ação está complexa demais
+    para este exercício — simplifique.</div>
+  </div>
+
+  <h3 class="grupo">Como usar este documento</h3>
+  <p class="lead">Os exemplos de código aqui são <b>genéricos</b>: use nomes de variáveis e ids
+  parecidos, mas adapte para os elementos da sua própria tela. Eles mostram o <i>padrão</i> de
+  cada tópico, não a solução pronta do exercício.</p>
+
+  <h3 class="grupo">O que a tela precisa ter</h3>
+  <ul class="checklist">
+    <li>Um card centralizado, com bordas arredondadas.</li>
+    <li>Uma foto de perfil que mostra uma dica ao passar o mouse.</li>
+    <li>Um campo de e-mail e um campo de senha.</li>
+    <li>Um botão "Limpar campos" e um botão "Enviar".</li>
+    <li>Pelo menos uma ação de cada tópico das seções 3 a 8.</li>
+  </ul>
+
+  <div class="regra">
+    <span class="icone">🧩</span>
+    <div><b>Núcleo vs. bônus:</b> os tópicos 1 a 13 (seções 3 a 7) já formam uma tela completa e
+    cabem nos 40 minutos de aula. Os tópicos 14 e 15 (seção 8 — escolher e mover a foto de
+    verdade) juntam o que foi visto no <b>Desafio 04</b> ("mover a caixa") com esta tela, e valem
+    como desafio bônus para quem terminar antes ou quiser continuar em casa.</div>
+  </div>
+</section>
+
+<!-- ===================== ESTRUTURA SUGERIDA ===================== -->
+<section class="page">
+  <h2 class="secao">2. Estrutura sugerida da tela</h2>
+  <p class="lead">Sugestão de elementos e ids para organizar o seu HTML antes de começar o
+  JavaScript. Os nomes são só sugestão — o importante é manter os ids consistentes entre o HTML e
+  o <code>document.getElementById(...)</code> do JS.</p>
+
+  <table>
+    <tr><th>Elemento</th><th>Tag sugerida</th><th>id / classe sugerido</th></tr>
+    <tr><td>Card principal</td><td><code>&lt;div&gt;</code></td><td><code>id="card-login"</code></td></tr>
+    <tr><td>Cabeçalho (título + subtítulo)</td><td><code>&lt;div&gt;</code></td><td><code>id="cabecalho"</code></td></tr>
+    <tr><td>Foto de perfil</td><td><code>&lt;div&gt;</code></td><td><code>id="foto-perfil"</code></td></tr>
+    <tr><td>Mensagem da foto (dica)</td><td><code>&lt;div&gt;</code></td><td><code>id="mensagem-foto"</code></td></tr>
+    <tr><td>Campo de e-mail</td><td><code>&lt;input&gt;</code></td><td><code>id="email"</code></td></tr>
+    <tr><td>Campo de senha</td><td><code>&lt;input&gt;</code></td><td><code>id="senha"</code></td></tr>
+    <tr><td>Botão limpar</td><td><code>&lt;button&gt;</code></td><td><code>id="btn-limpar"</code></td></tr>
+    <tr><td>Botão enviar</td><td><code>&lt;button&gt;</code></td><td><code>class="btn-enviar"</code></td></tr>
+    <tr><td>Lista de mensagens</td><td><code>&lt;ul&gt;</code></td><td><code>id="area-mensagens"</code></td></tr>
+    <tr><td colspan="3"><i>Desafio bônus (seção 8) — escolher e mover a foto:</i></td></tr>
+    <tr><td>Moldura de posicionamento</td><td><code>&lt;div&gt;</code></td><td><code>id="moldura-foto"</code></td></tr>
+    <tr><td>Imagem escolhida</td><td><code>&lt;img&gt;</code></td><td><code>id="foto-real"</code></td></tr>
+    <tr><td>Alça de mover</td><td><code>&lt;button&gt;</code></td><td><code>id="alca-mover"</code></td></tr>
+    <tr><td>Seletor de arquivo (escondido)</td><td><code>&lt;input type="file"&gt;</code></td><td><code>id="input-foto"</code></td></tr>
+  </table>
+  <p class="lead">Dica: monte primeiro o HTML e o CSS (visual parado), abra no navegador e só
+  depois ligue o <code>script.js</code>.</p>
+</section>
+
+<!-- ===================== PADRÕES: SELEÇÃO ===================== -->
+<section class="page">
+  <h2 class="secao">3. Padrões de código — Selecionando elementos</h2>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">1</span><h3>getElementById</h3></div>
+    <p class="quando">Quando usar: buscar UM elemento específico, pelo seu id — a forma mais
+    direta de selecionar.</p>
+    <span class="tag-lang tag-html">HTML</span>
+    <div class="bloco-codigo">&lt;button id="meu-botao"&gt;Clique aqui&lt;/button&gt;</div>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">const botao = document.getElementById("meu-botao");</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">2</span><h3>querySelector</h3></div>
+    <p class="quando">Quando usar: buscar o PRIMEIRO elemento que casa com um seletor CSS
+    (classe, id, tag...).</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">const primeiro = document.querySelector(".minha-classe");</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">3</span><h3>querySelectorAll</h3></div>
+    <p class="quando">Quando usar: buscar TODOS os elementos que casam com um seletor, para repetir
+    a mesma ação em cada um com <code>forEach</code>.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">document.querySelectorAll("input").forEach(function (campo) {
+  campo.value = "";
+});</div>
+  </div>
+</section>
+
+<!-- ===================== PADRÕES: CONTEÚDO ===================== -->
+<section class="page">
+  <h2 class="secao">4. Padrões de código — Lendo e escrevendo conteúdo</h2>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">4</span><h3>textContent</h3></div>
+    <p class="quando">Quando usar: escrever ou ler só TEXTO dentro de um elemento — não interpreta
+    tags HTML, então é o jeito mais seguro para mensagens simples.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.textContent = "Insira sua foto";</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">5</span><h3>innerHTML</h3></div>
+    <p class="quando">Quando usar: inserir HTML de verdade (tags) dentro de um elemento, como um
+    título com um span colorido dentro.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.innerHTML = "&lt;h1&gt;Acesse sua conta&lt;/h1&gt;&lt;p&gt;Preencha os campos&lt;/p&gt;";</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">6</span><h3>Capturando valores de input</h3></div>
+    <p class="quando">Quando usar: ler o que o usuário digitou em um campo, através da propriedade
+    <code>.value</code>.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">const valorEmail = email.value;
+const valorSenha = senha.value;</div>
+  </div>
+</section>
+
+<!-- ===================== PADRÕES: EVENTOS DE MOUSE ===================== -->
+<section class="page">
+  <h2 class="secao">5. Padrões de código — addEventListener e eventos de mouse</h2>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">7</span><h3>addEventListener</h3></div>
+    <p class="quando">Quando usar: "escutar" um evento em um elemento e reagir a ele com UMA ação
+    direta (sem <code>if</code>/<code>else</code> dentro da função).</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.addEventListener("click", function () {
+  // uma única ação direta aqui
+});</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">8</span><h3>Eventos de mouse</h3></div>
+    <p class="quando">click, dblclick, mouseover e mouseout — os quatro eventos de mouse
+    trabalhados na semana.</p>
+    <table>
+      <tr><th>Evento</th><th>Dispara quando...</th></tr>
+      <tr><td><code>click</code></td><td>o usuário clica uma vez no elemento.</td></tr>
+      <tr><td><code>dblclick</code></td><td>o usuário clica duas vezes seguidas.</td></tr>
+      <tr><td><code>mouseover</code></td><td>o mouse ENTRA na área do elemento.</td></tr>
+      <tr><td><code>mouseout</code></td><td>o mouse SAI da área do elemento.</td></tr>
+    </table>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.addEventListener("mouseover", function () {
+  elemento.classList.add("visivel");
+});
+
+elemento.addEventListener("mouseout", function () {
+  elemento.classList.remove("visivel");
+});
+
+elemento.addEventListener("dblclick", function () {
+  elemento.innerHTML = "✅";
+});</div>
+  </div>
+</section>
+
+<!-- ===================== PADRÕES: TECLADO E STYLE ===================== -->
+<section class="page">
+  <h2 class="secao">6. Padrões de código — Teclado e style via JS</h2>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">9</span><h3>keydown / keyup</h3></div>
+    <p class="quando">keydown dispara no momento em que a tecla é PRESSIONADA; keyup dispara no
+    momento em que a tecla é SOLTA. Pense num carro: <code>keydown</code> acelera,
+    <code>keyup</code> para de acelerar.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">campo.addEventListener("keydown", function () {
+  // roda enquanto a tecla está pressionada
+});
+
+campo.addEventListener("keyup", function () {
+  // roda no instante em que a tecla é solta
+});</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">10</span><h3>Style com JavaScript</h3></div>
+    <p class="quando">Quando usar: mudar UMA propriedade CSS específica direto pelo JS. Propriedade
+    com hífen no CSS vira camelCase em JS (<code>border-color</code> → <code>borderColor</code>).</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">campo.style.borderColor = "#f0a500";</div>
+  </div>
+</section>
+
+<!-- ===================== PADRÕES: CLASSLIST E DOM DINÂMICO ===================== -->
+<section class="page">
+  <h2 class="secao">7. Padrões de código — classList e elementos dinâmicos</h2>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">11</span><h3>classList</h3></div>
+    <p class="quando">Quando usar: ligar/desligar uma classe já definida no CSS — mais organizado
+    do que mudar <code>style</code> direto, porque a aparência fica no CSS.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.classList.add("sucesso");
+elemento.classList.remove("sucesso");
+elemento.classList.toggle("sucesso");</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">12</span><h3>createElement + appendChild</h3></div>
+    <p class="quando">Quando usar: criar um elemento novo em JavaScript e inserir na página.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">const novoItem = document.createElement("li");
+novoItem.textContent = "Login recebido: " + valorEmail;
+lista.appendChild(novoItem);</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">13</span><h3>removeChild / remove</h3></div>
+    <p class="quando">Duas formas de tirar um elemento da página: pedindo para o PAI remover o
+    filho, ou pedindo para o próprio elemento se remover.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">// Forma clássica: o elemento PAI remove o filho
+pai.removeChild(filho);
+
+// Forma moderna: o próprio elemento se remove
+filho.remove();</div>
+  </div>
+</section>
+
+<!-- ===================== PADRÕES: FOTO REAL E MOVIMENTO (BÔNUS) ===================== -->
+<section class="page">
+  <h2 class="secao">8. Padrões de código — Escolher e mover a foto (bônus)</h2>
+  <p class="lead">Junta o Encontro 3 inteiro em uma coisa só: um <code>input</code> de arquivo de
+  verdade, e a mesma ideia de "mover" do <b>Desafio 04</b> — só que agora dá pra mover com o
+  <b>mouse</b> também, não só com o teclado.</p>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">14</span><h3>Escolher um arquivo (File API)</h3></div>
+    <p class="quando">Quando usar: deixar o usuário escolher uma imagem do computador e mostrar
+    ela na tela. O <code>input</code> de verdade fica escondido — um clique em outro elemento
+    (o círculo da foto) é quem "aciona" ele.</p>
+    <span class="tag-lang tag-html">HTML</span>
+    <div class="bloco-codigo">&lt;input type="file" id="input-foto" accept="image/*" hidden&gt;</div>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">elemento.addEventListener("click", function () {
+  inputFoto.click(); // abre o seletor de arquivos do sistema
+});
+
+inputFoto.addEventListener("change", function () {
+  // change só dispara quando o usuário REALMENTE escolhe um arquivo
+  // (se ele cancelar o seletor, o evento nem roda) — por isso não
+  // precisamos checar "se veio arquivo" com if.
+  const arquivo = inputFoto.files[0];
+  imagem.src = URL.createObjectURL(arquivo);
+});</div>
+  </div>
+
+  <div class="topico">
+    <div class="cabecalho-topico"><span class="numero">15</span><h3>Mover um elemento: teclado + mouse</h3></div>
+    <p class="quando">Mesma ideia do Desafio 04 (mover a caixa com as setas), só que agora com
+    duas formas de mover a mesma posição — e sem nenhum <code>if</code>/<code>else</code>.</p>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">const PASSO = 10;
+let posicaoX = 0;
+let posicaoY = 0;
+
+// Função única, chamada tanto pelo teclado quanto pelo mouse abaixo.
+function mover(deltaX, deltaY) {
+  posicaoX += deltaX;
+  posicaoY += deltaY;
+  elemento.style.left = posicaoX + "px";
+  elemento.style.top = posicaoY + "px";
+}
+
+// Teclado: o Desafio 04 usa 4 "if" (um por seta). Aqui, um objeto faz
+// a mesma escolha sem if — "||" cobre a tecla que não é seta.
+const setas = {
+  ArrowRight: { x: PASSO, y: 0 },
+  ArrowLeft: { x: -PASSO, y: 0 },
+  ArrowDown: { x: 0, y: PASSO },
+  ArrowUp: { x: 0, y: -PASSO }
+};
+
+elemento.addEventListener("keydown", function (event) {
+  const delta = setas[event.key] || { x: 0, y: 0 };
+  mover(delta.x, delta.y);
+});
+
+// Mouse: "liga" o acompanhamento do mouse só enquanto o botão estiver
+// pressionado. event.movementX/Y é quanto o mouse andou desde o
+// último movimento — dá pra somar direto na posição atual.
+elemento.addEventListener("mousedown", function () {
+  document.addEventListener("mousemove", moverComMouse);
+});
+
+document.addEventListener("mouseup", function () {
+  document.removeEventListener("mousemove", moverComMouse);
+});
+
+function moverComMouse(event) {
+  mover(event.movementX, event.movementY);
+}</div>
+    <p class="quando">Dica: para o elemento não sair da área (como no Desafio 04), prenda
+    <code>posicaoX</code>/<code>posicaoY</code> com <code>Math.max(0, Math.min(valor, limite))</code>
+    dentro de <code>mover()</code>, antes de aplicar em <code>style.left</code>/<code>style.top</code>.</p>
+  </div>
+</section>
+
+<!-- ===================== OUTROS CASOS DE USO ===================== -->
+<section class="page">
+  <h2 class="secao">9. Outros casos de uso do addEventListener</h2>
+  <p class="lead">A tela de login só precisa de botões e teclado, mas a semana cobriu mais
+  cenários de <code>addEventListener</code>. Exemplos genéricos, para consulta:</p>
+
+  <div class="topico">
+    <h3>Botão — executar algo ao clicar</h3>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">botao.addEventListener("click", function () {
+  mensagem.textContent = "Botão clicado!";
+});</div>
+  </div>
+
+  <div class="topico">
+    <h3>Campo de busca — filtrar enquanto digita</h3>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">campoBusca.addEventListener("keyup", function () {
+  console.log("buscando por:", campoBusca.value);
+});</div>
+  </div>
+
+  <div class="topico">
+    <h3>Menu — abrir e fechar ao passar o mouse</h3>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">menu.addEventListener("mouseover", function () {
+  menu.classList.add("aberto");
+});
+
+menu.addEventListener("mouseout", function () {
+  menu.classList.remove("aberto");
+});</div>
+  </div>
+
+  <div class="topico">
+    <h3>Jogo — acelerar e parar com o teclado</h3>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">document.addEventListener("keydown", function () {
+  carro.classList.add("acelerando");
+});
+
+document.addEventListener("keyup", function () {
+  carro.classList.remove("acelerando");
+});</div>
+  </div>
+
+  <div class="topico">
+    <h3>Formulário — reagir ao clique de enviar</h3>
+    <span class="tag-lang tag-js">JS</span>
+    <div class="bloco-codigo">botaoEnviar.addEventListener("click", function () {
+  const valor = campo.value;
+  status.textContent = "Enviado: " + valor;
+});</div>
+  </div>
+</section>
+
+<!-- ===================== CHECKLIST DE EXECUÇÃO ===================== -->
+<section class="page">
+  <h2 class="secao">10. Checklist de execução</h2>
+
+  <h3 class="grupo">Núcleo — 40 minutos de aula</h3>
+  <div class="passos-tempo">
+    <div class="passo-tempo"><span class="min">10 min</span><div>Montar o HTML: card, cabeçalho,
+    foto de perfil, campos de e-mail/senha e os dois botões (seção 2).</div></div>
+    <div class="passo-tempo"><span class="min">5 min</span><div>Estilizar com CSS: card
+    centralizado, bordas arredondadas, círculo da foto.</div></div>
+    <div class="passo-tempo"><span class="min">5 min</span><div>Selecionar todos os elementos no
+    topo do <code>script.js</code> com <code>getElementById</code>/<code>querySelector</code>.</div></div>
+    <div class="passo-tempo"><span class="min">10 min</span><div>Implementar os eventos de mouse
+    e teclado da foto (dica) e da senha (seções 5 e 6).</div></div>
+    <div class="passo-tempo"><span class="min">10 min</span><div>Implementar os botões Enviar e
+    Limpar campos (seção 7), comparando com a Documentação Funcional.</div></div>
+  </div>
+
+  <h3 class="grupo">Bônus — se sobrar tempo, ou para continuar em casa</h3>
+  <div class="passos-tempo">
+    <div class="passo-tempo"><span class="min">10 min</span><div>Trocar o ícone fixo por um
+    <code>input type="file"</code> de verdade (seção 8, tópico 14).</div></div>
+    <div class="passo-tempo"><span class="min">15 min</span><div>Adicionar a alça de mover, com
+    teclado e mouse, reaproveitando o padrão do Desafio 04 (seção 8, tópico 15).</div></div>
+  </div>
+
+  <h3 class="grupo">Antes de entregar, confira</h3>
+  <ul class="checklist">
+    <li>Os 13 tópicos do núcleo (seções 3 a 7) aparecem pelo menos uma vez no seu código.</li>
+    <li>Nenhum <code>if</code>/<code>else</code> dentro de um <code>addEventListener</code> —
+    a única exceção aceitável é o objeto de busca do tópico 15 (bônus), que evita o if.</li>
+    <li>O resultado visual bate com a Documentação Funcional, passo a passo.</li>
+    <li>Nenhum erro aparece no console do navegador.</li>
+  </ul>
+  <div class="rodape-pagina">Refinamento Técnico — Mini Projeto Tela de Login — M1S08 SENAI/SC</div>
+</section>
+
+</body>
+</html>
