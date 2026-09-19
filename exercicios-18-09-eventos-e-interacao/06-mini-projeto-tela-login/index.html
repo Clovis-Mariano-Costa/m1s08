@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Projeto - Tela de Login</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- defer garante que o DOM já está pronto quando script.js rodar. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!--
+    GABARITO DO PROFESSOR — uso em sala, para correção com a turma.
+    O aluno constrói o próprio HTML a partir da Documentação Funcional
+    e do Refinamento Técnico (PDF/HTML na raiz do repositório).
+  -->
+  <main class="pagina">
+    <div class="card-login" id="card-login">
+
+      <!-- Preenchido pelo JavaScript com innerHTML (Bloco 1) -->
+      <div id="cabecalho"></div>
+
+      <!--
+        Moldura: área onde a foto pode ser arrastada (posição relativa,
+        igual à .area-de-jogo do Desafio 04 — só que aqui carregando
+        uma foto de perfil em vez de uma caixa vermelha).
+      -->
+      <div class="moldura-foto" id="moldura-foto">
+        <!-- Foto de perfil: mouseover/mouseout mostram e escondem a dica -->
+        <div class="foto-perfil" id="foto-perfil">
+          <span id="icone-foto">👤</span>
+          <!-- Some por baixo do ícone até o aluno escolher um arquivo -->
+          <img id="foto-real" class="foto-real" alt="Foto de perfil escolhida">
+          <!-- O texto aqui dentro é escrito pelo JavaScript com textContent -->
+          <div class="mensagem-foto" id="mensagem-foto"></div>
+          <!-- Alça: arraste com o mouse OU foque (clique/Tab) e use as setas -->
+          <button type="button" class="alca-mover" id="alca-mover" title="Arraste ou use as setas do teclado para mover">✥</button>
+        </div>
+      </div>
+
+      <!-- input de verdade, escondido: quem "abre" ele é o clique na foto -->
+      <input type="file" id="input-foto" accept="image/*" hidden>
+
+      <!-- Removida pelo JavaScript ao escolher uma foto (Bloco de upload, .remove()) -->
+      <p class="dica" id="dica-foto">💡 Clique na foto para escolher uma imagem. Arraste a alça ✥ (ou foque nela e use as setas) para reposicionar. 2 cliques na alça removem a foto.</p>
+
+      <div class="campos">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" placeholder="seu@email.com">
+
+        <!-- Borda ganha destaque no keydown/keyup (Bloco 4, style via JS) -->
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" placeholder="Digite sua senha">
+
+        <div class="botoes">
+          <button type="button" id="btn-limpar">Limpar campos</button>
+          <button type="button" id="btn-enviar" class="btn-enviar">Enviar</button>
+        </div>
+      </div>
+
+      <!-- Cada envio cria um <li> aqui dentro com createElement + appendChild -->
+      <ul id="area-mensagens" class="area-mensagens"></ul>
+
+    </div>
+  </main>
+</body>
+</html>
